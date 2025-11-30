@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello World</h1>
+    <p id="message"></p>
+    <p id="result"></p>
+    <script>
+        fetch("https://dummyjson.com/products/1")
+        .then(res => {
+            const response = res.json()
+            console.log("response: ", response)
+            return response
+        })
+        .then(data => {
+            console.log("Data:", data)
+            const text = document.getElementById("message")
+            console.log(text)
+            text.innerText = data.title
+
+            const result = document.getElementById("result")
+            result.innerText = data.price
+        })
+    </script>
+</body>
+</html>
